@@ -1,23 +1,21 @@
-<h1>Listing tracks</h1>
+<h1>Evidence Tracks</h1>
 
 <table>
   <tr>
+    <th>Data Type</th>
     <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Selection Method</th>
+    <th>Selection Criteria</th>
+    <td>Select</td>
   </tr>
 
 <% @tracks.each do |track| %>
   <tr>
+    <td class="nowrap"><%= track.data_type %></td>
     <td><%= track.name %></td>
-    <td><%= link_to 'Show', track %></td>
-    <td><%= link_to 'Edit', edit_track_path(track) %></td>
-    <td><%= link_to 'Destroy', track, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td class="nowrap"><%= track.selection_method %></td>
+    <td class="nowrap"><%= track.selection_criteria %></td>
+    <td><%= check_box_tag :track %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Track', new_track_path %>
