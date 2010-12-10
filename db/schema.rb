@@ -59,7 +59,18 @@ ActiveRecord::Schema.define(:version => 20101102140854) do
   add_index "histograms", ["track_id", "level", "chromosome", "bin"], :name => "index_histograms_on_track_id_and_level_and_chromosome_and_bin"
 
   create_table "tracks", :force => true do |t|
-    t.string "name"
+    t.string  "name"
+    t.string  "file_name"
+    t.string  "data_type"
+    t.string  "platform"
+    t.string  "genome_assembly"
+    t.string  "selection_method"
+    t.string  "selection_criteria"
+    t.integer "regions_count",      :default => 0
+    t.string  "source_link"
+    t.integer "pmid"
   end
+
+  add_index "tracks", ["data_type"], :name => "index_tracks_on_data_type"
 
 end
