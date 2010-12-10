@@ -1,0 +1,188 @@
+body {
+  width: 940px;
+  margin: 1em auto;
+}
+a, a:visited {
+  color: #c03;
+}
+a:hover {
+  color: #f04;
+}
+th, td {
+  border-left: 0;
+  border-right: 0;
+  padding: 0.25em 1.25em;
+  text-align: center;
+}
+h1 {
+  margin-top: 2em;
+}
+#header {
+  margin-bottom: 0.25em;
+  font-size: 270%;
+  font-weight: bold;
+  color: #c03;
+}
+#header img {
+  margin-right: 0.25em;
+}
+#header h2 {
+  color: #666;
+  font-size: 45%;
+  margin: 0 0 1em 0;
+}
+#header a {
+  text-decoration: none;
+}
+#chromosome_nav ul {
+  margin: 0;
+  padding: 0;
+}
+#chromosome_nav li {
+  list-style:none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  background-color: #ccc;
+  color: #c03;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+#chromosome_nav a, #chromosome_nav a:visited {
+  color: #c03;
+  text-decoration: none;
+  display: block;
+  margin: 0;
+  padding: 0.25em 0.9em;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: 0;
+}
+#chromosome_nav a:hover {
+  color: #fff;
+  background-color: #cca3ad;
+}
+#chromosome_nav span.current {
+  color: #fff;
+  background-color: #c03;
+  margin: 0;
+  padding: 0.25em 0.9em;
+  display: block;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: 0px solid #c03;
+}
+#zoom_control {
+  display: inline-block;
+  margin: 1em 0;
+  background-color: #ccc;
+  color: #c03;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+#zoom_control span {
+  padding: 0.25em 0.95em;
+  display: block;
+  color: #999;
+}
+#zoom_control a, #zoom_control a:visited {
+  color: #c03;
+  text-decoration: none;
+  display: block;
+  padding: 0.25em 0.95em;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+#zoom_control a:hover {
+  color: #fff;
+  background-color: #cca3ad;
+}
+
+/* cytoband gie stains start */
+table.cytoband {
+  border: 0;
+  margin: 1em 0 0em 30px;
+  padding: 0;
+}
+.cytoband td {
+  overflow: hidden;
+  margin: 0 -1px 0 0;
+  padding: 0;
+  font-size: 0%;
+  height: 20px;
+}
+table.region {
+  border: 0;
+  margin: 0 0 1em 30px;
+  padding: 0;
+}
+.region td {
+  border: 1px solid #fff;
+  margin: 0 -1px 0 0px;
+  font-size: 0%;
+  height: 10px;
+  color: #fff;
+}
+.region td.current {
+  margin: 0 -1px 0 0;
+  background-color: #c03;
+  color: #c03;
+  font-size: 0%;
+}
+.gneg {
+  background-color: #fff;
+  color: #fff;
+  border: 1px solid #000;
+}
+.gpos25 {
+  background-color: #c0c0c0;
+  color: #c0c0c0;
+  border: 1px solid #000;
+}
+.gpos50 {
+  background-color: #808080;
+  color: #808080;
+  border: 1px solid #000;
+}
+.gpos75 {
+  background-color: #a9a9a9;
+  color: #a9a9a9;
+  border: 1px solid #000;
+}
+.gpos100 {
+  background-color: #000;
+  color: #000;
+  border: 1px solid #000;
+}
+.acen { /* centromere */
+  background-color: #cca3ad;
+  color: #cca3ad;
+  border: 1px solid #fff;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #000;
+  border-left: 1px solid #000;}
+.gvar { /* a diagonal black-on-white pattern */
+  background-color: #808080;
+  color: #808080;
+  border: 1px solid #000;
+}
+.stalk { /* a narrower gray region, an acrocentric stalk */
+  background-color: #808080;
+  color: #808080;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #000;
+  border-left: 1px solid #000;
+}
+
+/* cytoband gie stains end */
+
+h2 small {
+  font-weight: normal;
+}
