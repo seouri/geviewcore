@@ -2,7 +2,7 @@ class TracksController < ApplicationController
   # GET /tracks
   # GET /tracks.xml
   def index
-    @tracks = Track.all
+    @tracks = Track.order("data_type, name")
 
     respond_to do |format|
       format.html # index.html.erb

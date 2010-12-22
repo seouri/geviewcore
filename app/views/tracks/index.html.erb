@@ -6,6 +6,7 @@
     <th>Name</th>
     <th>Selection Method</th>
     <th>Selection Criteria</th>
+    <th># of Regions</th>
     <td>Select</td>
   </tr>
 
@@ -15,6 +16,7 @@
     <td><%= track.name %></td>
     <td class="nowrap"><%= track.selection_method %></td>
     <td class="nowrap"><%= track.selection_criteria %></td>
+    <td class="nowrap"><%= number_with_delimiter(track.regions_count) %></td>
     <td><%= check_box_tag :track %></td>
   </tr>
 <% end %>

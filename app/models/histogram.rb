@@ -8,11 +8,11 @@ class Histogram < ActiveRecord::Base
     hist.each do |h|
       freq[h.bin] = h.frequency
     end
-    bin_min = bin_start || hist.map(&:bin).min
+    bin_min = bin_start || hist.map(&:bin).min || 0
     if bin_min < 0
       bin_min = 0
     end
-    bin_max = bin_end || hist.map(&:bin).max
+    bin_max = bin_end || hist.map(&:bin).max || bin_min + bin_size
     data = []
     bin_min.step(bin_max, bin_size) do |bin|
       value = freq[bin].nil? ? 0 : freq[bin] / freq.values.max.to_f * 100
