@@ -1,5 +1,9 @@
-<h1>Evidence Tracks</h1>
-<%= link_to "graphs", graph_path(:chromosome => 1, :level => 6)%>
+
+<h1>Select Evidence Tracks</h1>
+<% form_tag(:action => "summary") do %>
+  <%= hidden_field_tag "resolution", @resolution %>
+  <%= hidden_field_tag "regions", @regions %>
+  
 <table>
   <tr>
     <th>Data Type</th>
@@ -17,7 +21,7 @@
     <td class="nowrap"><%= track.selection_method %></td>
     <td class="nowrap"><%= track.selection_criteria %></td>
     <td class="nowrap"><%= number_to_human(track.regions_count) %></td>
-    <td><%= check_box_tag :track %></td>
+    <td><%= check_box_tag "track_ids[]", track.id, true %></td>
   </tr>
   <% Track.where(:data_type => track.data_type).where("id < 990").each do |subtrack| %>
     <tr class="subtrack">
@@ -26,10 +30,17 @@
       <td class="nowrap"><%= subtrack.selection_method %></td>
       <td class="nowrap"><%= subtrack.selection_criteria %></td>
       <td class="nowrap"><%= number_to_human(subtrack.regions_count) %></td>
-      <td><%= check_box_tag :track %></td>
+      <td><%= check_box_tag "track_ids[]", subtrack.id, false %></td>
     </tr>
   <% end %>
 <% end %>
 </table>
 
-<%= submit_tag "Show Tracks"%>
+<%= radio_button_tag 'resolution', 7, true %> 10 MB
+<%= radio_button_tag 'resolution', 6 %> 1 MB
+<%= radio_button_tag 'resolution', 5 %> 100 KB
+<%= radio_button_tag 'resolution', 4 %> 10 KB
+<br />
+<%= submit_tag "Find evidences for these inputs in these evidence tracks", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Please wait..." %>
+
+<% end %>

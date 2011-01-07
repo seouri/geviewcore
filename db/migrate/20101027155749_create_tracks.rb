@@ -4,7 +4,8 @@ class CreateTracks < ActiveRecord::Migration
       t.string :name
       t.string :file_name
       t.string :data_type
-      t.integer :parent_id
+      t.boolean :disease_specific, :default => false
+      t.integer :parent_id, :default => 0
       t.string :platform
       t.string :genome_assembly
       t.string :selection_method

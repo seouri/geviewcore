@@ -1,0 +1,33 @@
+<h2><%= pluralize(@regions.size, "region") %> recognized.</h2>
+<h2>Resolution: <%= number_to_human_size(10 ** @resolution.to_i, :precision => 1) %></h2>
+<h2>Selected Evidence Tracks</h2>
+<ul>
+  <% @tracks.each do |track| %>
+  <li>[<%= track.data_type %>] <%= track.name %></li>
+  <% end %>
+</ul>
+<h1>Result Summary</h1>
+<table id="summary">
+  <tr>
+    <th>Input</th>
+    <th>CNV</th>
+    <th>Gene Expression</th>
+    <th>Genes</th>
+    <th>SNP</th>
+    <th>Literature</th>
+    <th>Total</th>
+  </tr>
+<% @summary.each do |s| %>
+  <tr>
+    <td><%= link_to s[0], graph_path(:chromosome => s[7], :level => s[8], :center => s[9])%></td>
+    <td><span class="cnv"><%= s[1] %></span></td>
+    <td><span class="ge"><%= s[2] %></span></td>
+    <td><span class="genes"><%= s[3] %></span></td>
+    <td><span class="snp"><%= s[4] %></span></td>
+    <td><span class="literature"><%= s[5] %></span></td>
+    <td><span class="total"><%= s[6] %></span></td>
+  </tr>
+<% end %>
+</table>
+
+

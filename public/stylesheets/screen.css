@@ -30,6 +30,9 @@ td {
 td.nowrap {
   white-space: nowrap;
 }
+tr.subtrack {
+  color: #999;
+}
 h1 {
   margin-top: 2em;
 }
@@ -201,4 +204,16 @@ table.region {
 
 h2 small {
   font-weight: normal;
+}
+
+textarea.regions {
+  width: 50%;
+  height: 15em;
+}
+
+#summary td {
+  text-align: center;
+}
+.cnv, .ge, .genes, .snp, .literature, .total {
+  text-align: center;
 }

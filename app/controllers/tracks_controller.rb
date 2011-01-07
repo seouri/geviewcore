@@ -2,7 +2,7 @@ class TracksController < ApplicationController
   # GET /tracks
   # GET /tracks.xml
   def index
-    @tracks = Track.order("data_type, name")
+    @tracks = Track.order("data_type, name").where("id > 990")
 
     respond_to do |format|
       format.html # index.html.erb
