@@ -17,14 +17,14 @@
 <% @tracks.each do |track| %>
   <tr>
     <td class="nowrap"><%= track.data_type %></td>
-    <td><%= track.name %></td>
+    <td><%= track.name %><% if track.subtracks.size > 1 %> <span onclick="$('.sub_<%= @data_type_css[track.data_type] %>').toggle()">[<%= track.subtracks.size %> tracks]<span><% end %></td>
     <td class="nowrap"><%= track.selection_method %></td>
     <td class="nowrap"><%= track.selection_criteria %></td>
     <td class="nowrap"><%= number_to_human(track.regions_count) %></td>
     <td><%= check_box_tag "track_ids[]", track.id, true %></td>
   </tr>
-  <% Track.where(:data_type => track.data_type).where("id < 990").each do |subtrack| %>
-    <tr class="subtrack">
+  <% track.subtracks.each do |subtrack| %>
+    <tr class="subtrack sub_<%= @data_type_css[subtrack.data_type] %>">
       <td class="nowrap"></td>
       <td><%= subtrack.name %></td>
       <td class="nowrap"><%= subtrack.selection_method %></td>
@@ -36,7 +36,6 @@
 <% end %>
 </table>
 
-<%= radio_button_tag 'resolution', 7, true %> 10 MB
 <%= radio_button_tag 'resolution', 6 %> 1 MB
 <%= radio_button_tag 'resolution', 5 %> 100 KB
 <%= radio_button_tag 'resolution', 4 %> 10 KB

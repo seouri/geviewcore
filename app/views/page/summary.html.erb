@@ -3,7 +3,7 @@
 <h2>Selected Evidence Tracks</h2>
 <ul>
   <% @tracks.each do |track| %>
-  <li>[<%= track.data_type %>] <%= track.name %></li>
+  <li><span class="<%= @data_type_css[track.data_type] %>"><%= track.data_type %></span> <%= track.name %></li>
   <% end %>
 </ul>
 <h1>Result Summary</h1>
@@ -12,7 +12,7 @@
     <th>Input</th>
     <th>CNV</th>
     <th>Gene Expression</th>
-    <th>Genes</th>
+    <th>Candidate Genes</th>
     <th>SNP</th>
     <th>Literature</th>
     <th>Total</th>
