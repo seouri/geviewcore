@@ -20,12 +20,12 @@
 <% @summary.each do |s| %>
   <tr>
     <td><%= link_to s[0], graph_path(:chromosome => s[7], :level => s[8], :center => s[9])%></td>
-    <td><span class="cnv"><%= s[1] %></span></td>
-    <td><span class="ge"><%= s[2] %></span></td>
-    <td><span class="genes"><%= s[3] %></span></td>
-    <td><span class="snp"><%= s[4] %></span></td>
-    <td><span class="literature"><%= s[5] %></span></td>
-    <td><span class="total"><%= s[6] %></span></td>
+    <td><span class="<%= s[1] > 0 ? "cnv" : "novalue" %>"><%= s[1] %></span></td>
+    <td><span class="<%= s[2] > 0 ? "ge" : "novalue" %>"><%= s[2] %></span></td>
+    <td><span class="<%= s[3] > 0 ? "genes" : "novalue" %>"><%= s[3] %></span></td>
+    <td><span class="<%= s[4] > 0 ? "snp" : "novalue" %>"><%= s[4] %></span></td>
+    <td><span class="<%= s[5] > 0 ? "literature" : "novalue" %>"><%= s[5] %></span></td>
+    <td><span class="<%= s[6] > 0 ? "total" : "novalue" %>"><%= s[6] %></span></td>
   </tr>
 <% end %>
 </table>

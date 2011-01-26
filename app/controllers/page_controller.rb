@@ -39,8 +39,10 @@ class PageController < ApplicationController
         end
         ['CNV','Gene Expression', 'Candidate Genes', 'SNP', 'literature'].each do |type|
           data_type['total'] += 1 if data_type[type] > 0
+          #data_type[type] = "" if data_type[type] == 0
         end
         @summary.push([region, data_type['CNV'], data_type['Gene Expression'], data_type['Candidate Genes'], data_type['SNP'], data_type['literature'], data_type['total'], gene.chromosome.gsub(/chr/, ""), @resolution, bin])
+        @summary.sort!{|a, b| [b[6], b[4], b[1], b[2], b[3], a[5]] <=> [a[6], a[4], a[1], a[2], a[3], a[5]]}
       end
     end
   end
