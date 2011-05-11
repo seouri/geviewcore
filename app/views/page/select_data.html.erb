@@ -8,7 +8,7 @@
   <tr>
     <th>Data Type</th>
     <th>Name</th>
-    <th>Selection Method</th>
+    <!-- th>Selection Method</th-->
     <th>Selection Criteria</th>
     <th># of Regions</th>
     <td>Select</td>
@@ -18,28 +18,31 @@
   <tr>
     <td class="nowrap"><%= track.data_type %></td>
     <td><%= track.name %><% if track.subtracks.size > 1 %> <span onclick="$('.sub_<%= @data_type_css[track.data_type] %>').toggle()">[<%= track.subtracks.size %> tracks]<span><% end %></td>
-    <td class="nowrap"><%= track.selection_method %></td>
+    <!-- td class="nowrap"><%= track.selection_method %></td -->
     <td class="nowrap"><%= track.selection_criteria %></td>
-    <td class="nowrap"><%= number_to_human(track.regions_count) %></td>
-    <td><%= check_box_tag "track_ids[]", track.id, true %></td>
+    <td class="nowrap" style="text-align: right"><%= number_with_delimiter(track.regions_count) %></td>
+    <td style="text-align: right"><%= check_box_tag "track_ids[]", track.id, true %></td>
   </tr>
   <% track.subtracks.each do |subtrack| %>
     <tr class="subtrack sub_<%= @data_type_css[subtrack.data_type] %>">
       <td class="nowrap"></td>
       <td><%= subtrack.name %></td>
-      <td class="nowrap"><%= subtrack.selection_method %></td>
+      <!-- td class="nowrap"><%= subtrack.selection_method %></td -->
       <td class="nowrap"><%= subtrack.selection_criteria %></td>
-      <td class="nowrap"><%= number_to_human(subtrack.regions_count) %></td>
-      <td><%= check_box_tag "track_ids[]", subtrack.id, false %></td>
+      <td class="nowrap"><%= number_with_delimiter(subtrack.regions_count) %></td>
+      <td style="text-align: right"><%= check_box_tag "track_ids[]", subtrack.id, false %></td>
     </tr>
   <% end %>
 <% end %>
 </table>
+<h2>Select Resolution: 
 
-<%= radio_button_tag 'resolution', 6 %> 1 MB
-<%= radio_button_tag 'resolution', 5 %> 100 KB
-<%= radio_button_tag 'resolution', 4 %> 10 KB
-<br />
+<%= radio_button_tag 'resolution', 6 %> 1 MB &nbsp; &nbsp;
+<%= radio_button_tag 'resolution', 5 %> 100 KB &nbsp; &nbsp;
+<%= radio_button_tag 'resolution', 4 %> 10 KB &nbsp; &nbsp;
+<%= radio_button_tag 'resolution', 3 %> 1 KB &nbsp; &nbsp;
+<%= radio_button_tag 'resolution', 2 %> 100 B
+</h2>
 <%= submit_tag "Find evidences for these inputs in these evidence tracks", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Please wait..." %>
 
 <% end %>

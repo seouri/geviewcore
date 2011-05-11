@@ -1,18 +1,11 @@
-<h2><%= pluralize(@regions.size, "region") %> recognized.</h2>
-<h2>Resolution: <%= number_to_human_size(10 ** @resolution.to_i, :precision => 1) %></h2>
-<h2>Selected Evidence Tracks</h2>
-<ul>
-  <% @tracks.each do |track| %>
-  <li><span class="<%= @data_type_css[track.data_type] %>"><%= track.data_type %></span> <%= track.name %></li>
-  <% end %>
-</ul>
+
 <h1>Result Summary</h1>
 <table id="summary">
   <tr>
     <th>Input</th>
     <th>CNV</th>
     <th>Gene Expression</th>
-    <th>Candidate Genes</th>
+    <th>Expert Knowledge</th>
     <th>SNP</th>
     <th>Literature</th>
     <th>Total</th>
@@ -30,4 +23,12 @@
 <% end %>
 </table>
 
+<h2><%= pluralize(@regions.size, "region") %> recognized.</h2>
+<h2>Resolution: <%= number_to_human_size(10 ** @resolution.to_i, :precision => 1) %></h2>
 
+<h2>Selected Evidence Tracks</h2>
+<ul>
+  <% @tracks.each do |track| %>
+  <li><span class="<%= @data_type_css[track.data_type] %>"><%= track.data_type %></span> <%= track.name %></li>
+  <% end %>
+</ul>

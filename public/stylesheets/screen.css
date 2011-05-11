@@ -6,8 +6,9 @@
 #322 : brown
 */
 body {
-  width: 940px;
+  width: 1040px;
   margin: 1em auto;
+  text-align: center;
 }
 a, a:visited {
   color: #c03;
@@ -17,6 +18,10 @@ a:hover {
 }
 table {
   width: 100%;
+  font-size: 157.1%;
+}
+th {
+  white-space: nowrap;
 }
 th, td {
   border-left: 0;
@@ -35,7 +40,8 @@ tr.subtrack {
   display: none;
 }
 h1 {
-  margin-top: 2em;
+  font-size: 197%;
+  margin-top: 1em;
 }
 #header {
   margin-bottom: 0.25em;
@@ -208,10 +214,21 @@ h2 small {
 }
 
 textarea.regions {
-  width: 50%;
-  height: 15em;
+  width: 90%;
+  height: 16em;
+  font-size: 182%;
+  border: 0.25em solid #666;
+  padding: 0.25em;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
 }
-
+input.form_submit {
+  margin: 1em 0;
+  font-size: 153.9%;
+  font-size: 2em;
+  width: 90%;
+}
 #summary td {
   text-align: center;
 }
