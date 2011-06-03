@@ -3,8 +3,7 @@
 
 <%= cytoband(@level, @chromosome, @center, 900)%>
 <%= genes(@level, @chromosome, @center, 900)%>
-<% track_with_hist = Histogram.select("distinct track_id").where("track_id < 99").map{|t| t.track_id} %>
-<% Track.where(:id => track_with_hist).each do |track| %>
+<% Track.where(:parent_id => 0).where("id > 900").each do |track| %>
 <h2><%= track.name.html_safe %> <small>(click on the bar to zoom in)</small></h2>
 <script type="text/javascript+protovis">
 var data<%= track.id %> = <%= Histogram.data(track.id, @level, @chromosome, @center).html_safe %>;
