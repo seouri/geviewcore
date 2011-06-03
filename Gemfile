@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.7'
-gem 'mysql2'
+gem 'mysql2', '0.2.6'
 gem 'jquery-rails'
 gem 'googlecharts', :require => 'gchart'
 gem 'rails3-jquery-autocomplete'
